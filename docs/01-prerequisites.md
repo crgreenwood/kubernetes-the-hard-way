@@ -1,23 +1,23 @@
 # Prerequisites
 
-## Google Cloud Platform
+## IBM Cloud Platform
 
-This tutorial leverages the [Google Cloud Platform](https://cloud.google.com/) to streamline provisioning of the compute infrastructure required to bootstrap a Kubernetes cluster from the ground up. [Sign up](https://cloud.google.com/free/) for $300 in free credits.
+This tutorial leverages the [IBM Cloud Platform](https://cloud.ibm.com/) to streamline provisioning of the compute infrastructure required to bootstrap a Kubernetes cluster from the ground up. [Sign up](https://cloud.ibm.com). Note that it is possible to gain up to $1200 credit on new accounts using a quick search in [Google](https://www.google.com/search?q=ibm+cloud+free+credit)
 
-[Estimated cost](https://cloud.google.com/products/calculator/#id=78df6ced-9c50-48f8-a670-bc5003f2ddaa) to run this tutorial: $0.22 per hour ($5.39 per day).
+**TBC** Estimated cost to run this tutorial: $0.22 per hour ($5.39 per day).
 
 > The compute resources required for this tutorial exceed the Google Cloud Platform free tier.
 
-## Google Cloud Platform SDK
+## IBM Cloud CLI
 
-### Install the Google Cloud SDK
+### Install the IBM Cloud CLI
 
-Follow the Google Cloud SDK [documentation](https://cloud.google.com/sdk/) to install and configure the `gcloud` command line utility.
+Follow the IBM Cloud CLI [documentation](https://console.bluemix.net/docs/cli/reference/ibmcloud/download_cli.html) to install and configure the `ibmcloud` command line utility.
 
 Verify the Google Cloud SDK version is 218.0.0 or higher:
 
 ```
-gcloud version
+ibmcloud -v
 ```
 
 ### Set a Default Compute Region and Zone
