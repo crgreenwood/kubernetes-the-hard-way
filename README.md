@@ -1,6 +1,6 @@
 # Kubernetes The Hard Way
 
-**This is adaptation of Kelsey Hightower's work for IBM Cloud and is currently very much a WIP. Until this notice is removed it should considered to be part finished, broken or just wrong and should be ignored! If you find that this work is part finished and you want to help me finish it off please submit a pull request with your updates.**
+**This is an adaptation of Kelsey Hightower's work for IBM Cloud and Windows Clients and is currently very much a WIP. Until this notice is removed it should considered to be part finished, broken or just wrong and should be ignored! If you something broken and you want to help me finish it off please submit a pull request with your updates.**
 
 This tutorial walks you through setting up Kubernetes the hard way. This guide is not for people looking for a fully automated command to bring up a Kubernetes cluster. If that's you then check out [IBM Cloud Kubernetes Service](https://console.bluemix.net/docs/containers/container_index.html#container_index), or the [Getting Started Guides](http://kubernetes.io/docs/getting-started-guides/).
 
