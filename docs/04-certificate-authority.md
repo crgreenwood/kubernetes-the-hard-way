@@ -8,6 +8,8 @@ In this section you will provision a Certificate Authority that can be used to g
 
 Generate the CA configuration file, certificate, and private key:
 
+### OSX & Linux
+
 ```
 {
 
@@ -51,6 +53,54 @@ cfssl gencert -initca ca-csr.json | cfssljson -bare ca
 }
 ```
 
+### Windows
+
+Create ca-config.json with the following contents:
+
+```
+{
+  "signing": {
+    "default": {
+      "expiry": "8760h"
+    },
+    "profiles": {
+      "kubernetes": {
+        "usages": ["signing", "key encipherment", "server auth", "client auth"],
+        "expiry": "8760h"
+      }
+    }
+  }
+}
+```
+
+Create ca-csr.json with the following contents:
+
+```
+{
+  "CN": "Kubernetes",
+  "key": {
+    "algo": "rsa",
+    "size": 2048
+  },
+  "names": [
+    {
+      "C": "US",
+      "L": "Portland",
+      "O": "Kubernetes",
+      "OU": "CA",
+      "ST": "Oregon"
+    }
+  ]
+}
+```
+
+Place these files in the same folder where you stored the cfssl tools that we downloaded earlier
+
+Run
+```
+.\cfssl_windows-amd64.exe gencert -initca ca-csr.json | .\cfssljson_windows-amd64.exe -bare ca
+```
+
 Results:
 
 ```
@@ -65,6 +115,8 @@ In this section you will generate client and server certificates for each Kubern
 ### The Admin Client Certificate
 
 Generate the `admin` client certificate and private key:
+
+### OSX & Linux
 
 ```
 {
@@ -97,6 +149,10 @@ cfssl gencert \
 
 }
 ```
+
+### Windows
+
+**Continue from here**
 
 Results:
 
