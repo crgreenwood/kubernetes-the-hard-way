@@ -110,7 +110,19 @@ done
 ### Windows
 
 ```
-0..2 | % { gcloud compute instances create controller-$_ --async --boot-disk-size 200GB --can-ip-forward --image-family ubuntu-1804-lts --image-project ubuntu-os-cloud --machine-type n1-standard-1 --private-network-ip 10.240.0.1$_ --scopes compute-rw,storage-ro,service-management,service-control,logging-write,monitoring --subnet kubernetes --tags kubernetes-the-hard-way,controller }
+0..2 | % { 
+    gcloud compute instances create controller-$_ `
+    --async `
+    --boot-disk-size 200GB `
+    --can-ip-forward `
+    --image-family ubuntu-1804-lts `
+    --image-project ubuntu-os-cloud `
+    --machine-type n1-standard-1 `
+    --private-network-ip 10.240.0.1$_ `
+    --scopes compute-rw,storage-ro,service-management,service-control,logging-write,monitoring `
+    --subnet kubernetes `
+    --tags kubernetes-the-hard-way,controller 
+    }
 ```
 
 ### Kubernetes Workers
@@ -120,6 +132,8 @@ Each worker instance requires a pod subnet allocation from the Kubernetes cluste
 > The Kubernetes cluster CIDR range is defined by the Controller Manager's `--cluster-cidr` flag. In this tutorial the cluster CIDR range will be set to `10.200.0.0/16`, which supports 254 subnets.
 
 Create three compute instances which will host the Kubernetes worker nodes:
+
+### OSX & Linux
 
 ```
 for i in 0 1 2; do
@@ -136,6 +150,25 @@ for i in 0 1 2; do
     --subnet kubernetes \
     --tags kubernetes-the-hard-way,worker
 done
+```
+
+### Windows
+
+```
+0..2 | % { 
+    gcloud compute instances create worker-$_ `
+    --async `
+    --boot-disk-size 200GB `
+    --can-ip-forward `
+    --image-family ubuntu-1804-lts `
+    --image-project ubuntu-os-cloud `
+    --machine-type n1-standard-1 `
+    --metadata pod-cidr=10.200.$_.0/24 `
+    --private-network-ip 10.240.0.2$_ `
+    --scopes compute-rw,storage-ro,service-management,service-control,logging-write,monitoring `
+    --subnet kubernetes `
+    --tags kubernetes-the-hard-way,worker
+    }
 ```
 
 ### Verification
