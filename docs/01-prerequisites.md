@@ -1,5 +1,9 @@
 # Prerequisites
 
+## Client
+
+OSX, Linux and Windows are all supported. Windows commands should be run in Powershell. Where commands differ between platforms it will be noted.
+
 ## IBM Cloud Platform
 
 This tutorial leverages the [IBM Cloud Platform](https://cloud.ibm.com/) to streamline provisioning of the compute infrastructure required to bootstrap a Kubernetes cluster from the ground up. [Sign up](https://cloud.ibm.com). Note that it is possible to gain up to $1200 credit on new accounts using a quick search in [Google](https://www.google.com/search?q=ibm+cloud+free+credit)
