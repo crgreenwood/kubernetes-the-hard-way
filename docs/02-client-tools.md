@@ -29,6 +29,15 @@ Some OS X users may experience problems using the pre-built binaries in which ca
 ```
 brew install cfssl
 ```
+### Windows
+
+Download `cfssl` and `cfssljson` from the [cfssl repository](https://pkg.cfssl.org):
+
+[cfssl_windows-amd64.exe](https://pkg.cfssl.org/R1.2/cfssl_windows-amd64.exe)
+
+[cfssljson_windows-amd64.exe](https://pkg.cfssl.org/R1.2/cfssljson_windows-amd64.exe)
+
+These are command line utilities so put them somewhere you can find them.
 
 ### Linux
 
@@ -85,6 +94,9 @@ chmod +x kubectl
 ```
 sudo mv kubectl /usr/local/bin/
 ```
+### Windows
+
+Install on Windows using [PSGallery](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-with-powershell-from-psgallery), [Chocolatey or scoop](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-on-windows-using-chocolatey-or-scoop)
 
 ### Linux
 
