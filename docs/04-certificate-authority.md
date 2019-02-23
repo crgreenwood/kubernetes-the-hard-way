@@ -237,7 +237,11 @@ done
 
 ### Windows
 
-**start here**
+
+0..2 | % { `
+        $EXTERNAL_IP = (gcloud compute instances describe worker-$_ --format 'value(networkInterfaces[0].accessConfigs[0].natIP)')
+        $INTERNAL_IP = (gcloud compute instances describe worker-$_ --format 'value(networkInterfaces[0].networkIP)')     
+    }
 
 Results:
 
