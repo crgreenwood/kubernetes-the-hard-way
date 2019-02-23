@@ -152,7 +152,36 @@ cfssl gencert \
 
 ### Windows
 
-**Continue from here**
+Create admin-csr.json with the following contents:
+
+```
+{
+  "CN": "admin",
+  "key": {
+    "algo": "rsa",
+    "size": 2048
+  },
+  "names": [
+    {
+      "C": "US",
+      "L": "Portland",
+      "O": "system:masters",
+      "OU": "Kubernetes The Hard Way",
+      "ST": "Oregon"
+    }
+  ]
+}
+```
+
+Run:
+
+```
+.\cfssl_windows-amd64.exe gencert `
+	-ca="ca.pem" -ca-key="ca-key.pem" `
+	-config="ca-config.json" `
+	-profile="kubernetes" `
+	admin-csr.json | .\cfssljson_windows-amd64.exe -bare admin
+```
 
 Results:
 
@@ -166,6 +195,8 @@ admin.pem
 Kubernetes uses a [special-purpose authorization mode](https://kubernetes.io/docs/admin/authorization/node/) called Node Authorizer, that specifically authorizes API requests made by [Kubelets](https://kubernetes.io/docs/concepts/overview/components/#kubelet). In order to be authorized by the Node Authorizer, Kubelets must use a credential that identifies them as being in the `system:nodes` group, with a username of `system:node:<nodeName>`. In this section you will create a certificate for each Kubernetes worker node that meets the Node Authorizer requirements.
 
 Generate a certificate and private key for each Kubernetes worker node:
+
+### OSX & Linux
 
 ```
 for instance in worker-0 worker-1 worker-2; do
@@ -203,6 +234,10 @@ cfssl gencert \
   ${instance}-csr.json | cfssljson -bare ${instance}
 done
 ```
+
+### Windows
+
+**start here**
 
 Results:
 
